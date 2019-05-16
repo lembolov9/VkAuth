@@ -1,0 +1,15 @@
+{% extends 'vk_app/index.html' %}
+{% block content %}
+        {% for friend in friends %}
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="card box-shadow">
+                    <img class="card-img-top"  alt="Nike React" style="width: 100%" src="{{ friend.photo_100 }}">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <a href="http://vk.com/id{{ friend.id }}">{{ friend.first_name }}{{ friend.last_name }}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+{% endblock %}

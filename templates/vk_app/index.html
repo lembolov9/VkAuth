@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <header>
+        <div class="container" style="text-align: end">
+                {% if user.is_authenticated %}
+                    {{ user.first_name }}
+                    {{ user.last_name }}
+                    <a class="btn" href="{% url 'logout' %}">Выход</a>
+                {% else %}
+                    <a class="btn" href="{% url 'social:begin' 'vk-oauth2' %}">Авторизоваться через ВК</a>
+                {% endif %}
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>
